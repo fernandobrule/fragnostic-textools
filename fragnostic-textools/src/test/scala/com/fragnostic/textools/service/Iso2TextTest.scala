@@ -9,9 +9,9 @@ class Iso2TextTest extends FunSpec with Matchers {
   val pathSrc: String = s"$base/target/portugues-iso.txt"
   val pathTgt: String = s"$base/target/portugues-text.txt"
 
-  describe("Parse ISO 2 Text Test") {
+  describe("ISO 2 Text Test") {
 
-    it("Can Parse ISO 2 Text") {
+    it("Can Convert ISO 2 Text") {
 
       val answer = CakeService.iso2TextService.iso2Text(pathSrc, pathTgt) fold (
         error => error,

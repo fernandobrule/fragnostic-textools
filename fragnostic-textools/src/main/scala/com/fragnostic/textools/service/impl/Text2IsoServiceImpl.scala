@@ -4,13 +4,11 @@ import com.fragnostic.support.FilesSupport
 import com.fragnostic.textools.service.api.Text2IsoServiceApi
 import com.fragnostic.textools.service.support.TextoolSupport
 
-import scala.annotation.tailrec
-
-trait Text2IsoServiceImpl extends Text2IsoServiceApi with FilesSupport with TextoolSupport {
+trait Text2IsoServiceImpl extends Text2IsoServiceApi {
 
   def text2IsoService = new DefaultText2IsoService
 
-  class DefaultText2IsoService extends Text2IsoServiceApi {
+  class DefaultText2IsoService extends Text2IsoServiceApi with FilesSupport with TextoolSupport {
 
     private val text2isoMap: Map[String, String] = Map(
       "\\(" -> "\\\\u0028", // parentesis izquierdo
@@ -32,32 +30,15 @@ trait Text2IsoServiceImpl extends Text2IsoServiceApi with FilesSupport with Text
       "\u00FA" -> "\\\\u00FA" // u min con acento tilde
     )
 
-    @tailrec
-    private def line2(line: String, isoItr: Iterator[String], map: Map[String, String]): String =
-      if (isoItr.hasNext) {
-        val code = isoItr.next()
-        if (line.startsWith(csharp)) {
-          line2(line, isoItr, map)
-        } else {
-          line2(line.replaceAll(code, map(code)), isoItr, map)
-        }
-      } else {
-        line
-      }
-
-    private def line2iso(line: String, isoItr: Iterator[String], map: Map[String, String]): String =
-      line2(line, isoItr, map)
-
     override def text2Iso(pathSrc: String, pathTgt: String): Either[String, String] =
       fileToList(pathSrc, charsetName) fold (
         error => Left("text.2.iso.error"),
-        list => {
+        list =>
           writeLinesToFile(list map (
-            line => line2iso(line, text2isoMap.keysIterator, text2isoMap)), pathTgt) fold (
+            line =>
+              convert(line, text2isoMap.keysIterator, text2isoMap)), pathTgt) fold (
             error => Left("text.2.iso.error"),
-            success => Right("text.2.iso.success"))
-
-        })
+            success => Right("text.2.iso.success")))
 
   }
 

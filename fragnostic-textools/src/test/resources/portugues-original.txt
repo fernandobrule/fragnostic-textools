@@ -1,0 +1,16 @@
+Uma conclusão importante é que os monolitos não são necessariamente uma arquitetura ruim, 
+possuem muitas vantagens, 
+como um único pipeline de testes e implementação. 
+É uma arquitetura particularmente útil no início de um projeto, 
+quando novos recursos devem ser entregues rapidamente. 
+Somente quando o "design payoff line" é cruzado, 
+ou seja, 
+quando o ponto no qual um design ruim pode impedir o desenvolvimento de novos recursos, 
+a arquitetura deve começar a ser melhorada. 
+No caso do Shopify, 
+melhorar a arquitetura não significava uma mudança para microservices, 
+mas uma mudança para um monolito modular. 
+Isso combinou as vantagens de um monolito, 
+um único pipeline de testes e implementação, 
+com as vantagens dos microservices, 
+como modularidade de código e desacoplamento. 

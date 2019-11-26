@@ -5,9 +5,8 @@ import org.scalatest.{ FunSpec, Matchers }
 
 class Text2IsoTest extends FunSpec with Matchers {
 
-  val base = "/Users/fernandobrule/Clones/fragnostic/fragnostic-code/fragnostic-textools/fragnostic-textools"
-  val pathSrc: String = s"$base/src/test/resources/portugues-original.txt"
-  val pathTgt: String = s"$base/target/portugues-iso.txt"
+  val pathSrc: String = "/home/fernandobrule/Clones/branch_v3_23_16_20191106_TZZHXNMS-674/v3---rebase-with-master/core/src/br/com/padtec/v3/util/strings_pt_BR.properties"
+  val pathTgt: String = "/home/fernandobrule/Covenant/fragnostic/fragnostic-textools/target/portugues-iso.txt"
 
   describe("Text 2 ISO Test") {
 

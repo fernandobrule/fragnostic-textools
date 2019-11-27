@@ -5,14 +5,27 @@ import org.scalatest.{ FunSpec, Matchers }
 
 class Text2IsoTest extends FunSpec with Matchers {
 
-  val pathSrc: String = "/home/fernandobrule/Clones/branch_v3_23_16_20191106_TZZHXNMS-674/v3---rebase-with-master/core/src/br/com/padtec/v3/util/strings_pt_BR.properties"
-  val pathTgt: String = "/home/fernandobrule/Covenant/fragnostic/fragnostic-textools/target/portugues-iso.txt"
+  val basePath: String = "/home/fernandobrule/Covenant/rebase/enUS"
+  /*
+  // strings_en_US.properties
+  val pathSrc: String = s"$basePath/strings_en_US.properties"
+  val pathTgt: String = s"$basePath/strings_en_US.properties.text2iso"
+
+  // strings_en_US_LOCAL_14453.properties
+  val pathSrc: String = s"$basePath/strings_en_US_LOCAL_14453.properties"
+  val pathTgt: String = s"$basePath/strings_en_US_LOCAL_14453.properties.text2iso"
+  */
+  // strings_en_US_REMOTE_14453.properties
+  val pathSrc: String = s"$basePath/strings_en_US_REMOTE_14453.properties"
+  val pathTgt: String = s"$basePath/strings_en_US_REMOTE_14453.properties.text2iso"
+
+  val cp1252 = "cp1252"
 
   describe("Text 2 ISO Test") {
 
     it("Can Convert Text 2 ISO") {
 
-      val answer = CakeService.text2IsoService.text2Iso(pathSrc, pathTgt) fold (
+      val answer = CakeService.text2IsoService.text2Iso(pathSrc, pathTgt, cp1252) fold (
         error => error,
         success => success)
 

@@ -4,6 +4,8 @@ trait TextoolSupport {
 
   val charsetName = "UTF-8"
   val csharp = "#"
+  val cp1252 = "cp1252"
+  val NEW_LINE = "\n"
 
   protected def convert(line: String, isoItr: Iterator[String], map: Map[String, String]): String =
     if (isoItr.hasNext) {

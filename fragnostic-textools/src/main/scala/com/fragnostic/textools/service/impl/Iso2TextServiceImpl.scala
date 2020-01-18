@@ -31,8 +31,8 @@ trait Iso2TextServiceImpl extends Iso2TextServiceApi {
       "\\\\u00FA" -> "\u00FA" // u min con acento tilde
     )
 
-    override def iso2Text(pathSrc: String, pathTgt: String): Either[String, String] =
-      fileToList(pathSrc, charsetName) fold (
+    override def iso2Text(pathSrc: String, pathTgt: String, encoding: String): Either[String, String] =
+      fileToList(pathSrc, encoding) fold (
         error => Left("iso.2.text.error"),
         list =>
           writeLinesToFile(list map (

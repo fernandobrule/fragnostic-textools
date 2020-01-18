@@ -6,7 +6,7 @@ trait Iso2TextServiceApi {
 
   trait Iso2TextServiceApi {
 
-    def iso2Text(pathSrc: String, pathTgt: String): Either[String, String]
+    def iso2Text(pathSrc: String, pathTgt: String, encoding: String): Either[String, String]
 
   }
 

@@ -6,7 +6,7 @@ trait Text2PlainServiceApi {
 
   trait Text2PlainServiceApi {
 
-    def text2Plain(pathSrc: String, pathTgt: String): Either[String, String]
+    def text2Plain(pathSrc: String, pathTgt: String, encoding: String): Either[String, String]
 
   }
 

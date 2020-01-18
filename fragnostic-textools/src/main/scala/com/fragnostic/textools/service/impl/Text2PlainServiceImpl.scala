@@ -30,8 +30,8 @@ trait Text2PlainServiceImpl extends Text2PlainServiceApi {
       "\u00FA" -> "o" // u min con acento tilde
     )
 
-    override def text2Plain(pathSrc: String, pathTgt: String): Either[String, String] =
-      fileToList(pathSrc, charsetName) fold (
+    override def text2Plain(pathSrc: String, pathTgt: String, encoding: String): Either[String, String] =
+      fileToList(pathSrc, encoding) fold (
         error => Left("text.2.plain.error"),
         list =>
           writeLinesToFile(list map (

@@ -3,7 +3,7 @@ package com.fragnostic.textools.service
 import com.fragnostic.textools.service.agnostic.CakeService
 import org.scalatest.{ FunSpec, Matchers }
 
-class Text2PlainTest extends FunSpec with Matchers {
+class Text2PlainTest extends FunSpec with Matchers with TestSupport {
 
   val base = "/Users/fernandobrule/Clones/fragnostic/fragnostic-code/fragnostic-textools/fragnostic-textools"
   val pathSrc: String = s"$base/src/test/resources/portugues-original.txt"
@@ -13,7 +13,7 @@ class Text2PlainTest extends FunSpec with Matchers {
 
     it("Can Convert Text 2 ISO") {
 
-      val answer = CakeService.text2PlainService.text2Plain(pathSrc, pathTgt) fold (
+      val answer = CakeService.text2PlainService.text2Plain(pathSrc, pathTgt, utf8) fold (
         error => error,
         success => success)
 

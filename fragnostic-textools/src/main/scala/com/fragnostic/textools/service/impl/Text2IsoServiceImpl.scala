@@ -273,7 +273,7 @@ trait Text2IsoServiceImpl extends Text2IsoServiceApi {
     private def convert(line: String, out: PrintWriter): Unit = {
       try {
         logger.info(s"about to convert:\n\t$line")
-        val lineIso = convert(line, text2iso8859g5Map.keysIterator, text2iso8859g5Map)
+        val lineIso = convert(line, text2iso8859g1Map.keysIterator, text2iso8859g1Map)
         out.write(lineIso)
         out.write(NEW_LINE)
       } catch {

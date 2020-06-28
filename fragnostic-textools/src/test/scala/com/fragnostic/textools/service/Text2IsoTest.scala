@@ -5,9 +5,9 @@ import org.scalatest.{ FunSpec, Matchers }
 
 class Text2IsoTest extends FunSpec with Matchers with TestSupport {
 
-  val basePath = "/Users/fernandobrule/Clones/regulatorio/regulatorio-code/regulatorio-i18n/cl/atacamasoft/regulatorio/web/i18n/"
-  val pathSrc: String = s"$basePath/mensajes-web-javascript_ru_RU.properties"
-  val pathTgt: String = s"$basePath/mensajes-web-javascript_ru_RU.properties---iso"
+  val basePath = "/Users/fernandobrule/Clones/futurepyme/futurepyme-office/futurepyme-office-web-i18n-resources/cl/atacamasoft/fp/web/i18n"
+  val pathSrc: String = s"$basePath/futurepyme-web-mensajes_en_US.properties"
+  val pathTgt: String = s"$basePath/futurepyme-web-mensajes_en_US.properties---iso"
 
   describe("Text 2 ISO Test") {
 
